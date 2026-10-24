@@ -81,9 +81,26 @@ local function snapshot_path()
 end
 
 local function publish()
+    local pkgset = {}
+    for i = 1, #items do
+        local pkgs = items[i].packages
+        if type(pkgs) == "table" then
+            for j = 1, #pkgs do
+                local nm = pkgs[j] and pkgs[j].name
+                if type(nm) == "string" and nm ~= "" then
+                    pkgset[nm] = true
+                end
+            end
+        end
+    end
+    local pkgcount = 0
+    for _ in pairs(pkgset) do
+        pkgcount = pkgcount + 1
+    end
     noctalia.state.set(STATE_KEY, {
         phase = phase,
         total = total,
+        packageCount = pkgcount,
         counts = counts,
         items = items,
         severity = audit.max_severity(counts),

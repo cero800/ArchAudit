@@ -73,9 +73,12 @@ local function subtitle()
         return tr("panel.checking")
     end
     if (snapshot.total or 0) > 0 then
-        return noctalia.trp("panel.advisory_count", snapshot.total)
-            .. " · "
-            .. counts_text(snapshot.counts or {})
+        local pkg_count = tonumber(snapshot.packageCount) or 0
+        local base = noctalia.trp("panel.advisory_count", snapshot.total)
+        if pkg_count > 0 then
+            base = base .. " " .. noctalia.trp("panel.affecting_packages", pkg_count)
+        end
+        return base .. " · " .. counts_text(snapshot.counts or {})
     end
     if snapshot.checkedAtMs ~= nil then
         return tr("panel.clean") .. " · " .. tr("panel.checked", { age = checked_age() })

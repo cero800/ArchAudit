@@ -10,6 +10,10 @@
       "one": "1 advisory",
       "other": "{count} advisories"
     },
+    "affecting_packages": {
+      "one": "affecting 1 package",
+      "other": "affecting {count} packages"
+    },
     "checked": "Checked {age}",
     "ignored": {
       "one": "1 ignored",
