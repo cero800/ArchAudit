@@ -1,0 +1,22 @@
+# Plugin source catalog for this repository.
+#
+# This is a hand-maintained source repository, so the catalog lives here. When
+# the plugin is submitted to noctalia-dev/community-plugins, that repo's CI
+# generates its own catalog; do not copy this file into the PR.
+#
+# Keep the row in sync with arch-audit/plugin.toml when releasing.
+
+[[plugin]]
+id = "cero800/arch-audit"
+name = "Arch Audit"
+version = "0.1.0"
+updated_at = 1792861716
+added_at = 1792861716
+author = "cero800"
+license = "MIT"
+icon = "shield-exclamation"
+description = "Audit installed Arch packages against the Arch Security Team advisories, with severity triage and new-CVE alerts."
+deprecated = false
+plugin_api = 42
+tags = ["arch", "bar", "panel", "service", "indicator", "system", "utility"]
+dependencies = ["arch-audit", "pacman", "xdg-open"]
