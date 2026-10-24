@@ -198,18 +198,19 @@ local function advisory_card(item)
             end,
         }))
     end
-    if fixed ~= nil then
-        table.insert(actions, ui.button({
-            text = tr("row.copy_upgrade"),
-            glyph = "copy",
-            controlSize = "sm",
-            variant = "ghost",
-            tooltip = tr("row.copy_upgrade_tip"),
-            onClick = function()
-                copy_text(audit.upgrade_command())
-            end,
-        }))
-    end
+    -- The correct action is always the same for every row: a full system
+    -- upgrade. Keeping the button even without a fixed version avoids implying
+    -- that the safe action depends on the tracker's release state.
+    table.insert(actions, ui.button({
+        text = tr("row.copy_upgrade"),
+        glyph = "copy",
+        controlSize = "sm",
+        variant = "ghost",
+        tooltip = tr("row.copy_upgrade_tip"),
+        onClick = function()
+            copy_text(audit.upgrade_command())
+        end,
+    }))
 
     return ui.column({
         key = "advisory-" .. item.id,
