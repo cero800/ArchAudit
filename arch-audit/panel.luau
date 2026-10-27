@@ -220,8 +220,8 @@ local function advisory_card(item)
         gap = 6,
         paddingH = 12,
         paddingV = 10,
-        fill = "surface_variant/0.35",
-        border = "outline/0.4",
+        fill = "surface_container/0.35",
+        border = "outline_variant/0.4",
         borderWidth = 1,
         radius = 8,
     }, {

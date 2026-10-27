@@ -86,7 +86,7 @@ local function publish()
         local pkgs = items[i].packages
         if type(pkgs) == "table" then
             for j = 1, #pkgs do
-                local nm = pkgs[j] and pkgs[j].name
+                local nm = pkgs[j]
                 if type(nm) == "string" and nm ~= "" then
                     pkgset[nm] = true
                 end
