@@ -11,7 +11,7 @@
 id = "cero800/arch-audit"
 name = "Arch Audit"
 version = "0.1.0"
-plugin_api = 42
+plugin_api = 43
 author = "cero800"
 license = "MIT"
 icon = "shield-exclamation"
